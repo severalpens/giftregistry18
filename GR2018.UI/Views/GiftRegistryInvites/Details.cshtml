@@ -1,0 +1,43 @@
+﻿@model GR2018.DataLayer.GiftRegistryInvite
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GiftRegistryInvite</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GiftRegistry.GiftRegistryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiftRegistry.GiftRegistryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InviteeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InviteeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GiftRegistryInviteID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

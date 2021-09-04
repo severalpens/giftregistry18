@@ -1,0 +1,53 @@
+﻿@*------------------------------------------Views/GiftRegistryMembers/Index-----------===-----------------------------*@
+
+@model IEnumerable<GR2018.DataLayer.GiftRegistryMember>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   // ViewBag.GRID = Model.Select(x => x.GiftRegistryID).FirstOrDefault();
+}
+
+<h2>@ViewBag.GRName</h2>
+
+<p>
+    @Html.ActionLink("Add Member", "NewMember", routeValues: new{id = ViewBag.id},htmlAttributes: null)
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.MemberName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.MemberEmail)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.IsAdmin)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member.MemberName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member.MemberEmail)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAdmin)
+        </td>
+        <td>
+            @if (!item.IsAdmin)
+            {
+            @Html.ActionLink("Delete", "Delete", new { id = item.GiftRegistryMemberID })
+            }
+        </td>
+    </tr>
+    }
+
+</table>

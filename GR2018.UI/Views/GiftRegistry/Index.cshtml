@@ -1,0 +1,61 @@
+﻿@*------------------------------------------Views/GiftRegistry/Index-----------===-----------------------------*@
+@model IEnumerable<GR2018.DataLayer.GiftRegistryMember>
+
+@{
+    ViewBag.Title = "Gift Registry";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Gift Registries</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GiftRegistry.GiftRegistryName)
+        </th>
+        <th></th>
+    </tr>
+    @*------------------------------------------Views/GiftRegistry/Index-----------===-----------------------------*@
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @* @Html.ActionLink(Html.DisplayFor(modelItem => item.GiftRegistry.GiftRegistryName).ToString(), "Index", new { id = item.GiftRegistryID })*@
+                @* @Html.ActionLink(item.GiftRegistry.GiftRegistryName.ToString(), "Index", "Gifts")*@
+
+                @Html.ActionLink(
+          linkText: item.GiftRegistry.GiftRegistryName.ToString(),
+          actionName: "Index",
+          controllerName: "Gifts",
+          routeValues: new
+          {
+              id = item.GiftRegistryID
+
+          },
+          htmlAttributes: null
+         )
+
+            </td>
+            <td>
+                @if (item.IsAdmin)
+                {
+                    @Html.ActionLink("Edit ", "Edit", new { id = item.GiftRegistryID });
+                }
+                |
+                @if (item.IsAdmin)
+                {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.GiftRegistryID })
+                }
+                |
+                @Html.ActionLink("Members", "Index", "GiftRegistryMembers", new { id = item.GiftRegistryID }, null)
+                |
+                @Html.ActionLink("Gift List", "Index", "Gifts", new { id = item.GiftRegistryID }, null)
+            </td>
+        </tr>
+    }
+
+</table>

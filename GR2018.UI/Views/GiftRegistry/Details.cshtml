@@ -1,0 +1,27 @@
+﻿@model GR2018.DataLayer.GiftRegistry
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GiftRegistry</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GiftRegistryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiftRegistryName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GiftRegistryID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

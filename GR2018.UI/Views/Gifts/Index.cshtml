@@ -1,0 +1,61 @@
+﻿@*------------------------------------------Views/Gifts/Index-----------===-----------------------------*@
+
+@model IEnumerable<GR2018.UI.ViewModels.GiftDisplayViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Gift List for @ViewBag.GRName</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", routeValues: new { id = ViewBag.Id })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiftName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SuggestedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiverName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecipientName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiftName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuggestedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiverName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecipientName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id, grid = item.GiftRegistryId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id, grid = item.GiftRegistryId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id, grid = item.GiftRegistryId })
+        </td>
+    </tr>
+    }
+
+</table>

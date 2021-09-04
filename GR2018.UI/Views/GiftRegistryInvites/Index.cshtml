@@ -1,0 +1,46 @@
+﻿@model IEnumerable<GR2018.DataLayer.GiftRegistryInvite>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GiftRegistry.GiftRegistryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InviteeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiftRegistry.GiftRegistryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InviteeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GiftRegistryInviteID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GiftRegistryInviteID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GiftRegistryInviteID })
+        </td>
+    </tr>
+}
+
+</table>

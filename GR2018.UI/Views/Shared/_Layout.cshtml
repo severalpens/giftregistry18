@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Gift Organizer</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-md bg-success navbar-dark justify-content-between">
+            <ul class="navbar-nav">
+                <li class="nav-item active lead">
+                    @Html.ActionLink("Gift Organizer", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item lead">
+                    @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })
+                </li>
+            </ul>
+            <ul class="navbar-nav lead">
+                <li class="nav-item">
+                    @Html.Partial("_LoginPartial", new { @class = "nav-item" })
+                </li>
+            </ul>
+
+        </nav>
+    </div>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - SeveralPens</p>
+        </footer>
+    </div>
+    <div class="container body-content santa">
+
+        <div class="row">
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+                <img class="santa" src="~/Content/SantaTransparentBackground.png" width="300px" />
+            </div>
+        </div>
+        <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+            <img class="img-responsive" src="layouts/layouts.PNG" />    <!--Mobile-->
+        </div>
+        <div class="hidden-xs col-sm-12 hidden-md hidden-lg">
+            <img class="img-responsive" src="layouts/05.png" />   <!--Tab-->
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

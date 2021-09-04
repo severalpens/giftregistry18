@@ -1,0 +1,30 @@
+﻿@*------------------------------------------Views/Home/Index-----------===-----------------------------*@
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron bg-success">
+    <h1>Christmas Gift Organizer</h1>
+    <p class="lead">Don't revert to 'secret santa'. Use the Gift Organizer!</p>
+    @using Microsoft.AspNet.Identity
+    @if (!Request.IsAuthenticated)
+    {
+        @Html.AntiForgeryToken()
+        <p>
+            @Html.ActionLink("Join!", "Register", "Account", null, new { @class = "btn btn-primary btn-lg" })
+            @Html.ActionLink("Log In!", "Login", "Account", null, new { @class = "btn btn-primary btn-lg", @style = "background-color:limegreen" })
+        </p>
+    }
+
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>How does it work?</h2>
+        @Html.ActionLink("Learn more »", "About", "Home", null, new { @class = "btn btn-default" })
+
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>

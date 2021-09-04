@@ -1,0 +1,60 @@
+﻿@model GR2018.UI.ViewModels.GiftDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Gift</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GiftName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiftName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiftDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiftDescription)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuggestedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuggestedBy)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Giver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Giver)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Recipient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Recipient)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GiftID, grid = ViewBag.Id }) |
+    @Html.ActionLink("Back to List", "Index", routeValues: new { id = ViewBag.Id })
+</p>
